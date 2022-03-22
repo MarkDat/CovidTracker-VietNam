@@ -1,0 +1,29 @@
+
+<app-total-case [caseCovid] = 'caseCovid'></app-total-case>
+Tìm tên Tỉnh/thành phố :
+<div class="input-fields">
+  <input type="text"class="form-control" id="search" [(ngModel)]="nameCity" (input)="search()">
+  <button type="button" (click)="reset()" class="btn btn-info" style="margin-left: 2px;">Làm mới</button>
+</div>
+<span *ngIf="!this.isMobile"><i>* Nhấp 2 lần vào tên tỉnh để tìm kiếm nhanh hơn cho lần sau.</i></span>
+<br>
+<table>
+  <tr id="header">
+      <th>Tỉnh/TP</th>
+      <th>Tổng số ca</th>
+      <th>Hôm nay</th>
+      <th>Tử vong</th>
+  </tr>
+  <tr *ngFor="let item of filteredItems" (dblclick)="saveLocal(item.name)">
+      <td>{{item.name}} </td>
+      <td>{{item.cases | number}}</td>
+      <td style="color: red;">
+        {{(item.casesToday ? "+"+(item.casesToday | number) : "-")}}
+      </td>
+      <td>{{item.death | number}}</td>
+  </tr>
+</table>
+
+<div class="toast alert alert-success" *ngIf="isShowToast">
+  <strong>Đã lưu tên tỉnh hiện tại!</strong>.
+</div>

@@ -1,0 +1,16 @@
+<marquee>
+  Thông tin được lấy từ website <a target="_blank" href="https://covid19.gov.vn/">CỔNG THÔNG TIN CỦA BỘ Y TẾ VỀ ĐẠI DỊCH COVID-19</a>
+  nên rất chính xác, dữ liệu về covid thường được cập nhật trong khoảng 18h - 19h
+</marquee>
+<table style="margin-bottom: 10px;">
+  <tr id="header" style="width: 100%;">
+      <th style="background-color: rgba(255, 0, 0, 0.89); width: 40%;">
+        SỐ CA NHIỄM: {{totalInternal?.cases | number}}
+        <br>
+       (Hôm nay {{todayInternal?.cases || todayInternal?.cases != 0 ?
+                  "+" + (todayInternal?.cases | number) : 0}})
+      </th>
+      <th style="background-color: green; width: 30%;">KHỎI: {{totalInternal?.recovered | number}}</th>
+      <th style="background-color: gray; width: 30%;">TỬ VONG: {{totalInternal?.death | number}}</th>
+  </tr>
+</table>

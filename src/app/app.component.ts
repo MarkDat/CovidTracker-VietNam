@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'covid-tracker';
+  lastUpdate : string;
+
+  onHandleLastUpdate(value : any){
+    this.lastUpdate = value
+  }
 }
